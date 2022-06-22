@@ -12,7 +12,10 @@
                    formControlName="name">
         </div>
         <div class="col-auto">
-            <span error-msg>
+            <span error-msg
+                  [color]="myColor"
+                  [message]="text1"
+                  [valid]="!hasError('name')">
                 
             </span>
         </div>
@@ -20,21 +23,23 @@
 
     <div class="row mt-5">
         <div class="col">
-            <button class="btn btn-primary ">Save</button>
+            <button class="btn btn-primary"
+                    (click)="changeName()">Save</button>
+            <button class="btn btn-primary ms-3"
+                    (click)="changeColor()">Save</button>
         </div>
     </div>
 </form>
 
-<h3 class="mt-5"
-    error-msg
-    [color]="myColor">Form</h3>
+<h3 class="mt-5">Form</h3>
 <pre>Value: {{ myForm.value | json }}</pre>
 <pre>Value: {{ myForm.valid }}</pre>
 
 
 <div class="row mt-5">
     <div class="col">
-        <div class="alert alert-primary">
+        <div class="alert alert-primary"
+             *customIf="myForm.valid">
             all Ok!
         </div>
     </div>
