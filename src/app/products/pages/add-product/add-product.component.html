@@ -12,10 +12,8 @@
                    formControlName="name">
         </div>
         <div class="col-auto">
-            <span class="form-text"
-                  *ngIf="hasError('name')"
-                  error-msg>
-                this field is required
+            <span error-msg>
+                
             </span>
         </div>
     </div>
@@ -27,7 +25,9 @@
     </div>
 </form>
 
-<h3 class="mt-5">Form</h3>
+<h3 class="mt-5"
+    error-msg
+    [color]="myColor">Form</h3>
 <pre>Value: {{ myForm.value | json }}</pre>
 <pre>Value: {{ myForm.valid }}</pre>
 

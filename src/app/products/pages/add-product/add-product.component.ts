@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddProductComponent {
 
+  myColor: string = 'green';
+
   myForm: FormGroup= this.fb.group({
     name: ['', Validators.required ]
   });
