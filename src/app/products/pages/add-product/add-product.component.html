@@ -2,16 +2,21 @@
 <hr>
 
 
-<form>
+<form [formGroup]="myForm">
     <div class="row g-3 align-items-center mb-3">
         <div class="col-auto">
             <label for="" class="col-form-label">Name:</label>
         </div>
         <div class="col-auto">
-            <input for="" class="form-control">
+            <input class="form-control"
+                   formControlName="name">
         </div>
         <div class="col-auto">
-            <span class="form-text">this field is required</span>
+            <span class="form-text"
+                  *ngIf="hasError('name')"
+                  error-msg>
+                this field is required
+            </span>
         </div>
     </div>
 
@@ -23,3 +28,14 @@
 </form>
 
 <h3 class="mt-5">Form</h3>
+<pre>Value: {{ myForm.value | json }}</pre>
+<pre>Value: {{ myForm.valid }}</pre>
+
+
+<div class="row mt-5">
+    <div class="col">
+        <div class="alert alert-primary">
+            all Ok!
+        </div>
+    </div>
+</div>
